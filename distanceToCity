@@ -1,0 +1,63 @@
+
+
+import java.util.Arrays;
+
+public class distanceToCity {
+
+    public static void main (String[] args) {
+        int[][] matrise = new int[10][10];
+        // Matrise på 10x10
+
+
+        // Først setter vi alle felter til -1 ved å loope
+        // igjennom hele matrisen
+        for (int rekke = 0; rekke < 10; rekke++) {
+            for (int rad = 0; rad < 10; rad++) {
+                matrise[rekke][rad] = -1;
+            }
+        }
+
+        // Så itererer vi matrisen på nytt, for å først sjekke om
+        // noen felter har -1 i seg (som alle er)
+        // Sett så inn random tall mellom 1 og 100
+        for (int rekke = 0; rekke < 10; rekke++) {
+            for (int rad = 0; rad < 10; rad++) {
+                if (matrise[rekke][rad] == -1) { 		// hvis posisjonen har verdien -1
+                	
+                	// initialiser var her for så lite scope som mulig
+                    int tall = (int) (Math.random() * (100-1)) + 1;		// deklarer int variabel som gir et tilfeldig heltall
+                    
+                    // Tallet som representerer distanse blir satt i matrisen på matchende symmetriske posisjoner
+                    matrise[rekke][rad] = tall;
+                    matrise[rad][rekke] = tall;
+                }
+            }
+        }
+
+// Tre ulike metoder for printing av 2D array-en "tabell"
+        /*
+        // Tradisjonell for-loop-syntax
+        for (int i = 0; i < tabell.length; i++) {
+            for (int j = 0; (tabell[i] != null && j < tabell[i].length); j++) {
+                System.out.print(tabell[i][j] + " ");
+            }
+            System.out.println();
+        } 
+        */
+        
+        /*
+        // "enhanced for statement" / foreach java
+        for (int[] rekke : tabell) {
+        	for (int rad : rekke) {
+        		System.out.print(rad + " ");
+        	}
+        System.out.println();	
+        }
+        */
+        
+        // Bruk innebygde Arrays-klassen til Java
+        for (int[] rekke : matrise)
+        System.out.println(Arrays.toString(rekke));
+    }
+
+}
