@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class travelingSalesman {
+
+	public static void main(String[] args) {
+
+		List<Integer> city = new ArrayList<>();
+		city.add(1);
+		city.add(2);
+		city.add(3);
+		city.add(4);
+		city.add(5);
+		city.add(6);
+		city.add(7);
+		city.add(8);
+		city.add(9);
+		city.add(10);
+
+		Random numberGenerator = new Random();
+		int nextRandom;
+
+		for (int i = 0; i < 10; i++) {
+			nextRandom = numberGenerator.nextInt(10 - i);
+
+			System.out.println(city.get(nextRandom));
+			city.remove(nextRandom);
+
+		}
+	}
+}
